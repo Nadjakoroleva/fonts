@@ -30,6 +30,7 @@ export const GlobalStyle = createGlobalStyle`
   body {
     margin: 0;
     overflow: hidden;
+    background-color: #0f1011;
   }
   main {
     h1,h3,h4,h5,h6 {
