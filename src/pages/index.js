@@ -14,14 +14,10 @@ const Container = styled.div`
 `;
 
 const ContainerTable = styled.div`
-  height: 70vh;
+  height: 50vh;
   background-color: #f3f3f3;
   color: #23262c;
   display: flex;
-`;
-
-const ShowCurrent = styled.div`
-  padding-top: 1vh;
 `;
 
 const ContainerFC = styled.div`
@@ -39,7 +35,7 @@ const TitleFC = styled.div`
 `;
 
 const RowFC = styled.div`
-  padding-bottom: 48px;
+  padding-bottom: 32px;
   cursor: pointer;
   font-family: 'Arrival Mono';
 `;
@@ -64,17 +60,19 @@ const TitleSC = styled.div`
 const LineHeight = styled.div`
   text-align: left;
   font-size: 276px;
-  line-height: 1.2;
+  line-height: 1;
   font-family: 'Arrival';
   position: absolute;
   bottom: 0;
   left: 32px;
 `;
 const ContainerHeader = styled.div`
-  height: 30vh;
+  height: 50vh;
   background-color: #0f1011;
-  padding: 64px;
+  padding: 64px 64px 32px 64px;
   position: relative;
+  display: flex;
+  flex-direction: column;
 `;
 
 const Span = styled.span`
@@ -82,13 +80,16 @@ const Span = styled.span`
   line-height: 24px;
   padding-left: 16px;
 `;
-
+const ShowCurrent = styled.div`
+  padding-top: 16px;
+  font-size: 13px;
+  line-height: 20px;
+`;
 const H1 = styled.h1`
-  position: absolute;
-  bottom: 32px;
   width: 90%;
   font-size: ${({ textStyle }) => `${textStyle}px`};
   line-height: ${({ lineHeight }) => `${lineHeight}px`};
+  letter-spacing: 0;
 `;
 const IndexPage = () => {
   const [textStyle, setTextStyle] = useState(30);
@@ -299,15 +300,19 @@ const IndexPage = () => {
       <SEO title="Home" keywords={[`gatsby`, `application`, `react`]} />
       <ContainerHeader>
         <GlobalStyle />
-        <img src="https://images.ctfassets.net/r0lccig03c53/1FRQbFHBEmzNQlnBEYkYAf/8aa9069fdc3850bab1b4ac32d06ac31e/White.svg?h=16" />
-        <Span>Font testing</Span>
+        <div style={{ flex: '1 0 auto' }}>
+          <img src="https://images.ctfassets.net/r0lccig03c53/1FRQbFHBEmzNQlnBEYkYAf/8aa9069fdc3850bab1b4ac32d06ac31e/White.svg?h=16" />
+          <Span>Font testing</Span>
+        </div>
+        <div>
+          <H1 textStyle={textStyle} lineHeight={lineHeight}>
+            Arrival is a technology company, we create Generation 2 Electric
+            Vehicles.{' '}
+          </H1>
+        </div>
         <ShowCurrent>
           Arrival Apercu Pro, {textStyle}px, {lineHeight}lh, 0ls
         </ShowCurrent>
-        <H1 textStyle={textStyle} lineHeight={lineHeight}>
-          Arrival is a technology company, we create Generation 2 Electric
-          Vehicles.{' '}
-        </H1>
       </ContainerHeader>
       <ContainerTable>
         <ContainerFC>
