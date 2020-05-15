@@ -20,6 +20,10 @@ const ContainerTable = styled.div`
   display: flex;
 `;
 
+const ShowCurrent = styled.div`
+  padding-top: 1vh;
+`;
+
 const ContainerFC = styled.div`
   width: 50%;
   overflow-y: scroll;
@@ -297,6 +301,9 @@ const IndexPage = () => {
         <GlobalStyle />
         <img src="https://images.ctfassets.net/r0lccig03c53/1FRQbFHBEmzNQlnBEYkYAf/8aa9069fdc3850bab1b4ac32d06ac31e/White.svg?h=16" />
         <Span>Font testing</Span>
+        <ShowCurrent>
+          Arrival Apercu Pro, {textStyle}px, {lineHeight}lh, 0ls
+        </ShowCurrent>
         <H1 textStyle={textStyle} lineHeight={lineHeight}>
           Arrival is a technology company, we create Generation 2 Electric
           Vehicles.{' '}
