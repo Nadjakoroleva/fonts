@@ -5,24 +5,25 @@ import SEO from '../components/seo';
 import Header from '../components/header';
 import Table from '../components/table';
 import { GlobalStyle } from '../components/globalStyle';
+import '../components/fonts.css';
 
 const Container = styled.div`
   height: 100vh;
   background-color: #0f1011;
+  font-family: 'Arrival';
 `;
 
 const ContainerTable = styled.div`
   height: 70vh;
   background-color: #f3f3f3;
   color: #23262c;
-  padding: 64px;
+  padding: 0 64px;
   display: flex;
 `;
 
 const ContainerFC = styled.div`
   width: 50%;
   overflow-y: scroll;
-  font-family: 'Arrival Mono';
   font-size: 13px;
   line-height: 20px;
   padding: 32px 64px;
@@ -37,6 +38,7 @@ const TitleFC = styled.div`
 const RowFC = styled.div`
   padding-bottom: 48px;
   cursor: pointer;
+  font-family: 'Arrival Mono';
 `;
 
 const Column1 = styled.div``;
@@ -49,7 +51,6 @@ const ContainerSC = styled.div`
 `;
 
 const TitleSC = styled.div`
-  font-family: 'Arrival Mono';
   font-size: 13px;
   line-height: 20px;
   padding-top: 32px;
@@ -58,7 +59,6 @@ const TitleSC = styled.div`
 `;
 
 const LineHeight = styled.div`
-  padding-top: 15vh;
   text-align: left;
   font-size: 276px;
   line-height: 1.2;

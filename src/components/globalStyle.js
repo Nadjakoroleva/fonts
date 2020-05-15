@@ -3,8 +3,8 @@ import { createGlobalStyle } from 'styled-components';
 export const GlobalStyle = createGlobalStyle`
   @font-face {
     font-family: 'Arrival';
-    src: url(../static/fonts/ArrivalApercuPro-Regular.woff2) format('woff2'),
-    url(../static/fonts/ArrivalApercuPro-Regular.woff) format('woff');
+    src: url(../static/fonts/ArrivalApercuPro-Light.woff2) format('woff2'),
+    url(../static/fonts/ArrivalApercuPro-Light.woff) format('woff');
     font-weight: 300;
   }
   @font-face {
