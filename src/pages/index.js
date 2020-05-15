@@ -17,7 +17,6 @@ const ContainerTable = styled.div`
   height: 70vh;
   background-color: #f3f3f3;
   color: #23262c;
-  padding: 0 64px;
   display: flex;
 `;
 
@@ -26,7 +25,7 @@ const ContainerFC = styled.div`
   overflow-y: scroll;
   font-size: 13px;
   line-height: 20px;
-  padding: 32px 64px;
+  padding: 32px 150px 32px 64px;
   display: flex;
   justify-content: space-between;
 `;
