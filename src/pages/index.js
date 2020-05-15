@@ -91,8 +91,8 @@ const H1 = styled.h1`
   line-height: ${({ lineHeight }) => `${lineHeight}px`};
 `;
 const IndexPage = () => {
-  const [textStyle, setTextStyle] = useState(40);
-  const [lineHeight, setLineHeight] = useState(64);
+  const [textStyle, setTextStyle] = useState(30);
+  const [lineHeight, setLineHeight] = useState(48);
 
   const handle2_5 = () => {
     setTextStyle(2.5);
