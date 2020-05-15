@@ -25,7 +25,7 @@ const ContainerFC = styled.div`
   font-family: 'Arrival Mono';
   font-size: 13px;
   line-height: 20px;
-  padding: 64px;
+  padding: 32px 64px;
   display: flex;
   justify-content: space-between;
 `;
@@ -45,26 +45,33 @@ const Column2 = styled.div``;
 const ContainerSC = styled.div`
   width: 50%;
   background-color: rgba(35, 38, 44, 0.1);
+  position: relative;
 `;
 
 const TitleSC = styled.div`
   font-family: 'Arrival Mono';
   font-size: 13px;
   line-height: 20px;
-  padding-top: 64px;
-  text-align: center;
+  padding-top: 32px;
+  padding-left: 32px;
+  text-align: left;
 `;
 
 const LineHeight = styled.div`
   padding-top: 15vh;
-  text-align: center;
-  font-size: 36px;
-  line-height: 48px;
+  text-align: left;
+  font-size: 276px;
+  line-height: 1.2;
+  font-family: 'Arrival';
+  position: absolute;
+  bottom: 0;
+  left: 32px;
 `;
 const ContainerHeader = styled.div`
   height: 30vh;
   background-color: #0f1011;
   padding: 64px;
+  position: relative;
 `;
 
 const Span = styled.span`
@@ -74,7 +81,9 @@ const Span = styled.span`
 `;
 
 const H1 = styled.h1`
-  margin-top: 48px;
+  position: absolute;
+  bottom: 32px;
+  width: 90%;
   font-size: ${({ textStyle }) => `${textStyle}px`};
   line-height: ${({ lineHeight }) => `${lineHeight}px`};
 `;
