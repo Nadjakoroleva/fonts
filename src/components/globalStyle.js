@@ -1,16 +1,6 @@
 import { createGlobalStyle } from 'styled-components';
 
 export const GlobalStyle = createGlobalStyle`
-  @font-face {
-    font-family: 'Arrival';
-    src: url(../static/fonts/ArrivalApercuPro-Light.woff2) format('woff2'),
-    url(../static/fonts/ArrivalApercuPro-Light.woff) format('woff');
-    font-weight: 300;
-  }
-  @font-face {
-    font-family: 'Arrival Mono';
-    src: url(https://static.arrival.com/fonts/ApercuMonoPro.woff) format('woff');
-  }
   :root {
     --grey:rgba(255, 255, 255, 0.6);
     --white: #F3F3F3;
