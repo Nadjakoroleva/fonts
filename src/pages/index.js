@@ -1,4 +1,4 @@
-import React, { useReducer } from 'react';
+import React, { createContext, useContext, useReducer } from 'react';
 import styled, { createGlobalStyle } from 'styled-components';
 
 import SEO from '../components/seo';
@@ -109,7 +109,7 @@ const changeTextStyle = (fontSize) => ({
 });
 
 const reducer = (store, action) => {
-  switch(action.type) {
+  switch (action.type) {
     case 'CHANGE_TEXT_STYLE':
       return {
         textStyle: action.payload,
@@ -120,6 +120,21 @@ const reducer = (store, action) => {
   }
 }
 
+const Context = createContext({
+  store: defaultStore,
+  dispatch: () => { }
+});
+
+const ShowCurrentWithContext = () => {
+  const { store } = useContext(Context);
+
+  return (
+    <ShowCurrent>
+      Arrival Apercu Pro, {store.textStyle}px, {store.lineHeight}lh, 0ls
+    </ShowCurrent>
+  );
+};
+
 const IndexPage = () => {
   const [store, dispatch] = useReducer(reducer, defaultStore);
   const { textStyle, lineHeight } = store;
@@ -129,46 +144,49 @@ const IndexPage = () => {
   };
 
   return (
-    <Container>
-      <SEO title="Home" keywords={[`gatsby`, `application`, `react`]} />
-      <ContainerHeader>
-        <GlobalStyle />
-        <div style={{ flex: '1 0 auto' }}>
-          <img src="https://images.ctfassets.net/r0lccig03c53/1FRQbFHBEmzNQlnBEYkYAf/8aa9069fdc3850bab1b4ac32d06ac31e/White.svg?h=16" />
-          <Span>Font testing</Span>
-        </div>
-        <div>
-          <H1 textStyle={textStyle} lineHeight={lineHeight}>
-            Arrival is a technology company, we create Generation 2 Electric
+    <Context.Provider value={{
+      store,
+      dispatch
+    }}>
+      <Container>
+        <SEO title="Home" keywords={[`gatsby`, `application`, `react`]} />
+        <ContainerHeader>
+          <GlobalStyle />
+          <div style={{ flex: '1 0 auto' }}>
+            <img src="https://images.ctfassets.net/r0lccig03c53/1FRQbFHBEmzNQlnBEYkYAf/8aa9069fdc3850bab1b4ac32d06ac31e/White.svg?h=16" />
+            <Span>Font testing</Span>
+          </div>
+          <div>
+            <H1 textStyle={textStyle} lineHeight={lineHeight}>
+              Arrival is a technology company, we create Generation 2 Electric
             Vehicles.{' '}
-          </H1>
-        </div>
-        <ShowCurrent>
-          Arrival Apercu Pro, {textStyle}px, {lineHeight}lh, 0ls
-        </ShowCurrent>
-      </ContainerHeader>
-      <ContainerTable>
-        <ContainerFC>
-          <Column1>
-            <TitleFC>Font size web (pt/px)</TitleFC>
-            {[2.5, 3.75].map(item => (
-              <RowFC key={item} onClick={handleChangeFontSize(item)}>{item}</RowFC>
-            ))}
-          </Column1>
-          <Column2>
-            {' '}
-            <TitleFC>Font size print (pt/px)</TitleFC>
-            {[3].map(item => (
-              <RowFC key={item} onClick={handleChangeFontSize(item)}>{item}</RowFC>
-            ))}
-          </Column2>
-        </ContainerFC>
-        <ContainerSC>
-          <TitleSC>Line Height (pt/px)</TitleSC>
-          <LineHeight>{lineHeight}</LineHeight>
-        </ContainerSC>
-      </ContainerTable>
-    </Container>
+            </H1>
+          </div>
+          <ShowCurrentWithContext/>
+        </ContainerHeader>
+        <ContainerTable>
+          <ContainerFC>
+            <Column1>
+              <TitleFC>Font size web (pt/px)</TitleFC>
+              {[2.5, 3.75].map(item => (
+                <RowFC key={item} onClick={handleChangeFontSize(item)}>{item}</RowFC>
+              ))}
+            </Column1>
+            <Column2>
+              {' '}
+              <TitleFC>Font size print (pt/px)</TitleFC>
+              {[3].map(item => (
+                <RowFC key={item} onClick={handleChangeFontSize(item)}>{item}</RowFC>
+              ))}
+            </Column2>
+          </ContainerFC>
+          <ContainerSC>
+            <TitleSC>Line Height (pt/px)</TitleSC>
+            <LineHeight>{lineHeight}</LineHeight>
+          </ContainerSC>
+        </ContainerTable>
+      </Container>
+    </Context.Provider>
   );
 };
 
